@@ -8,61 +8,61 @@ def mock_count_neighbors(mocker):
     yield mocker.patch("game_of_life.count_neighbors")
 
 
-def test_get_next_cell_is_live_for_3_neighbors(mock_count_neighbors):
+def test_get_next_generation_of_cell_is_live_for_3_neighbors(mock_count_neighbors):
     # given
     grid = ["........", "....*...", "...**...", "........"]
     mock_count_neighbors.return_value = 3
 
     # when
-    next_cell = get_next_cell(grid, 0, 0)
+    next_cell = get_next_generation_of_cell(grid, 0, 0)
 
     # then
     assert '*' == next_cell
 
 
-def test_get_next_cell_is_same_for_2_neighbors(mock_count_neighbors):
+def test_get_next_generation_of_cell_is_same_for_2_neighbors(mock_count_neighbors):
     # given
     grid = ["........", "....*...", "...**...", "........"]
     mock_count_neighbors.return_value = 2
 
     # when
-    next_cell = get_next_cell(grid, 1, 4)
+    next_cell = get_next_generation_of_cell(grid, 1, 4)
 
     # then
     assert grid[1][4] == next_cell
 
 
-def test_get_next_cell_is_dead_for_1_neighbors(mock_count_neighbors):
+def test_get_next_generation_of_cell_is_dead_for_1_neighbors(mock_count_neighbors):
     # given
     grid = ["........", "....*...", "...**...", "........"]
     mock_count_neighbors.return_value = 1
 
     # when
-    next_cell = get_next_cell(grid, 0, 0)
+    next_cell = get_next_generation_of_cell(grid, 0, 0)
 
     # then
     assert '.' == next_cell
 
 
-def test_get_next_cell_is_dead_for_0_neighbors(mock_count_neighbors):
+def test_get_next_generation_of_cell_is_dead_for_0_neighbors(mock_count_neighbors):
     # given
     grid = ["........", "....*...", "...**...", "........"]
     mock_count_neighbors.return_value = 0
 
     # when
-    next_cell = get_next_cell(grid, 0, 0)
+    next_cell = get_next_generation_of_cell(grid, 0, 0)
 
     # then
     assert '.' == next_cell
 
 
-def test_get_next_cell_is_dead_for_4_neighbors(mock_count_neighbors):
+def test_get_next_generation_of_cell_is_dead_for_4_neighbors(mock_count_neighbors):
     # given
     grid = ["........", "....*...", "...**...", "........"]
     mock_count_neighbors.return_value = 4
 
     # when
-    next_cell = get_next_cell(grid, 0, 0)
+    next_cell = get_next_generation_of_cell(grid, 0, 0)
 
     # then
     assert '.' == next_cell

@@ -1,4 +1,4 @@
-def get_next_cell(grid: list[str], i: int, j: int) -> str:
+def get_next_generation_of_cell(grid: list[str], i: int, j: int) -> str:
     count = count_neighbors(grid, i, j)
     match count:
         case 2:
@@ -31,7 +31,7 @@ def get_next_generation(input_grid: str) -> str:
     for i, line in enumerate(grid):
         output_line = ""
         for j, cell in enumerate(line):
-            new_cell = get_next_cell(grid, i, j)
+            new_cell = get_next_generation_of_cell(grid, i, j)
             output_line += new_cell
 
         output_grid.append(output_line)
